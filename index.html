@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Catelyn Claire Creative — Graphic Designer based in Omaha, NE. Branding, logo design, photography, and packaging."/>
+  <title>Catelyn Claire Creative</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="cursor" aria-hidden="true"></div>
+
+<div id="loader" role="status" aria-label="Loading">
+  <div class="ld-ring">
+    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <circle class="ra" cx="50" cy="50" r="44" stroke="#0a0a0a" stroke-width="3.5" stroke-dasharray="220 50"/>
+      <circle class="rb" cx="50" cy="50" r="28" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="130 44"/>
+      <text x="50" y="66" text-anchor="middle" font-family="Koulen,sans-serif" font-size="38" fill="#0a0a0a">C</text>
+    </svg>
+  </div>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+</div>
+
+<div class="drawer-mask" id="dMask" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" aria-label="Contact links">
+  <button class="drawer-x" onclick="closeDrawer()" aria-label="Close">✕</button>
+  <h3>Let's<br>Connect.</h3>
+  <div class="drawer-links">
+    <a href="mailto:catelyn@catelynclairecreative.com">catelyn@catelynclairecreative.com<span class="arr"> ↗</span></a>
+    <a href="https://www.behance.net/catelynrodenbiker" target="_blank" rel="noopener">Behance<span class="arr"> ↗</span></a>
+    <a href="https://www.linkedin.com/in/catelynrodenbiker" target="_blank" rel="noopener">LinkedIn<span class="arr"> ↗</span></a>
+    <a href="https://www.instagram.com/catelynclairecreative" target="_blank" rel="noopener">Instagram<span class="arr"> ↗</span></a>
+  </div>
+  <p class="drawer-note">Catelyn Claire Creative · Omaha, NE</p>
+</aside>
+
+<div id="tag-prev" aria-hidden="true">
+  <img id="tag-prev-img" src="" alt=""/>
+  <div id="tag-prev-fade"></div>
+</div>
+<div id="proj-float" aria-hidden="true"><img id="pf-img" src="" alt=""/></div>
+
+<div id="site" style="opacity:0;transition:opacity .7s ease">
+
+  <nav class="site-nav">
+    <a class="nav-logo" href="index.html">Catelyn Claire Creative</a>
+    <ul class="nav-right">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="#s-about" onclick="event.preventDefault();goTo(2)">About</a></li>
+      <li><button class="nav-cta" id="cBtn" onclick="openDrawer()" aria-expanded="false" aria-controls="drawer">Contact</button></li>
+    </ul>
+  </nav>
+
+  <!-- §1 HERO -->
+  <section class="panel" id="s-hero" aria-label="Hero">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <p class="hero-eyebrow">Graphic Designer — Omaha, NE</p>
+      <div class="hero-name" id="hName" aria-label="Catelyn Rodenbiker"></div>
+      <p class="hero-role">Design Engineer &amp; Entrepreneur</p>
+    </div>
+    <div class="hero-foot">
+      <nav class="hero-tags" aria-label="Disciplines">
+        <span class="htag" data-cat="branding"    data-img="images/project-mcdonalds.jpg"      role="button" tabindex="0">Branding</span>
+        <span class="htag" data-cat="logo"        data-img="images/project-nurture.jpg"        role="button" tabindex="0">Logo Design</span>
+        <span class="htag" data-cat="photography" data-img="images/project-grad.jpg"           role="button" tabindex="0">Photography</span>
+        <span class="htag" data-cat="packaging"   data-img="images/project-mcdonalds.jpg"      role="button" tabindex="0">Packaging</span>
+      </nav>
+      <div class="hero-hint" aria-hidden="true">Scroll</div>
+    </div>
+  </section>
+
+  <!-- §2 WORK LIST -->
+  <section class="panel" id="s-work" aria-label="Selected work">
+    <div class="wl-head">
+      <h2>Work</h2>
+      <a href="work.html">View all →</a>
+    </div>
+    <div class="proj-list" role="list">
+      <a class="prow" href="project-mcdonalds.html" data-img="images/project-mcdonalds.jpg" role="listitem">
+        <span class="p-name">McDonald's Happy Meal</span>
+        <span class="p-cat">Packaging</span>
+        <span class="p-yr">2026</span>
+        <span class="p-arrow">↗</span>
+      </a>
+      <a class="prow" href="project-grad.html" data-img="images/project-grad.jpg" role="listitem">
+        <span class="p-name">Graduate Studies</span>
+        <span class="p-cat">Branding</span>
+        <span class="p-yr">2025</span>
+        <span class="p-arrow">↗</span>
+      </a>
+      <a class="prow" href="project-nurture.html" data-img="images/project-nurture.jpg" role="listitem">
+        <span class="p-name">Nurture Nebraska</span>
+        <span class="p-cat">Logo</span>
+        <span class="p-yr">2025</span>
+        <span class="p-arrow">↗</span>
+      </a>
+      <a class="prow" href="project-charleston.html" data-img="images/project-charleston.jpg" role="listitem">
+        <span class="p-name">Charleston Games</span>
+        <span class="p-cat">Branding</span>
+        <span class="p-yr">2025</span>
+        <span class="p-arrow">↗</span>
+      </a>
+      <a class="prow" href="project-sbar.html" data-img="images/project-sbar.jpg" role="listitem">
+        <span class="p-name">S-Bar Steakhouse</span>
+        <span class="p-cat">Branding</span>
+        <span class="p-yr">2026</span>
+        <span class="p-arrow">↗</span>
+      </a>
+      <a class="prow" href="project-welcome.html" data-img="images/project-student-welcome.jpg" role="listitem">
+        <span class="p-name">Student Welcome</span>
+        <span class="p-cat">Photography</span>
+        <span class="p-yr">2025</span>
+        <span class="p-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- §3 ABOUT -->
+  <section class="panel" id="s-about" aria-label="About">
+    <div class="about-l">
+      <span class="eyebrow">About</span>
+      <h2>Catelyn<br>Rodenbiker</h2>
+      <p>Hi — I'm a designer raised in the corn (Omaha, NE) with aspirations of big city living. I love coffee, music, running, and spending quality time with my loved ones.</p>
+      <div>
+        <div class="edu-item">
+          <div class="edu-school">University of Nebraska–Lincoln</div>
+          <div class="edu-deg">BA Graphic Design &amp; BJ Advertising / Public Relations</div>
+          <div class="edu-yr">2023 – 2027</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">Metropolitan Community College</div>
+          <div class="edu-deg">AA General</div>
+          <div class="edu-yr">2019 – 2023</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-r">
+      <div class="about-img" id="aPhoto">
+        <img src="images/catelyn-headshot.jpg" alt="Catelyn Rodenbiker" loading="lazy"
+             onerror="this.parentElement.style.background='var(--g1)'"/>
+        <div class="conf-wrap" id="confWrap" aria-hidden="true"></div>
+      </div>
+      <div class="about-badge">Omaha, NE</div>
+    </div>
+  </section>
+
+  <!-- §4 CONTACT -->
+  <section class="panel" id="s-contact" aria-label="Contact">
+    <div class="contact-inner">
+      <span class="contact-eyebrow">Get in touch</span>
+      <h2>Let's<br>Work<br>Together.</h2>
+      <div class="c-grid">
+        <div class="c-links">
+          <a href="mailto:catelyn@catelynclairecreative.com">Email<span class="arr"> ↗</span></a>
+          <a href="https://www.behance.net/catelynrodenbiker" target="_blank" rel="noopener">Behance<span class="arr"> ↗</span></a>
+          <a href="https://www.linkedin.com/in/catelynrodenbiker" target="_blank" rel="noopener">LinkedIn<span class="arr"> ↗</span></a>
+          <a href="https://www.instagram.com/catelynclairecreative" target="_blank" rel="noopener">Instagram<span class="arr"> ↗</span></a>
+        </div>
+        <form class="c-form" onsubmit="submitForm(event)" novalidate aria-label="Contact form">
+          <div class="cff"><label for="fn">Name</label><input type="text" id="fn" name="name" autocomplete="name" required placeholder="Your name"/></div>
+          <div class="cff"><label for="fe">Email</label><input type="email" id="fe" name="email" autocomplete="email" required placeholder="your@email.com"/></div>
+          <div class="cff">
+            <label for="fs">Service</label>
+            <select id="fs" name="service" required>
+              <option value="">— Select —</option>
+              <option>Branding</option><option>Logo Design</option>
+              <option>Photography</option><option>Packaging</option><option>Other</option>
+            </select>
+          </div>
+          <div class="cff"><label for="fm">Message</label><textarea id="fm" name="message" required placeholder="Tell me about your project…"></textarea></div>
+          <button class="c-send" type="submit">Send →</button>
+        </form>
+      </div>
+    </div>
+    <div class="contact-bar">
+      <span>Catelyn Claire Creative © 2026</span>
+      <span class="live-clock">—</span>
+      <button class="top-btn" onclick="goTo(0)">↑ Top</button>
+    </div>
+  </section>
+
+</div><!-- /site -->
+
+<!-- SIDE DOTS -->
+<nav class="sdots" id="sdots" aria-label="Page sections">
+  <button class="sdot on" onclick="goTo(0)" aria-label="Hero"></button>
+  <button class="sdot"    onclick="goTo(1)" aria-label="Work"></button>
+  <button class="sdot"    onclick="goTo(2)" aria-label="About"></button>
+  <button class="sdot"    onclick="goTo(3)" aria-label="Contact"></button>
+</nav>
+
+<script>
+/* ── LOADER ────────────────────────────── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('out');
+    document.getElementById('site').style.opacity = '1';
+    setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
+  }, 1800);
+});
+
+/* ── CURSOR ────────────────────────────── */
+const cur = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top  = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, .htag, .prow').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+});
+
+/* ── CLOCK ─────────────────────────────── */
+(function tick() {
+  const t = new Date().toLocaleTimeString('en-US', {
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false, timeZone: 'America/Chicago'
+  }) + ' CST';
+  document.querySelectorAll('.live-clock').forEach(el => el.textContent = t);
+  setTimeout(tick, 1000);
+})();
+
+/* ── DRAWER ────────────────────────────── */
+function openDrawer()  {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('dMask').classList.add('open');
+  document.getElementById('cBtn').setAttribute('aria-expanded', 'true');
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('dMask').classList.remove('open');
+  document.getElementById('cBtn').setAttribute('aria-expanded', 'false');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+/* ── SECTION SCROLL SNAP ───────────────── */
+const IDS = ['s-hero','s-work','s-about','s-contact'];
+let cur_s = 0, busy = false;
+
+function goTo(i) {
+  if (i < 0 || i >= IDS.length) return;
+  cur_s = i;
+  document.getElementById(IDS[i]).scrollIntoView({ behavior: 'smooth' });
+  updateDots();
+  /* darken dots on contact panel */
+  document.getElementById('sdots').classList.toggle('dark', i === 3);
+}
+function updateDots() {
+  document.querySelectorAll('.sdot').forEach((d, i) => d.classList.toggle('on', i === cur_s));
+}
+
+let wt = null;
+window.addEventListener('wheel', e => {
+  if (busy) return;
+  clearTimeout(wt);
+  wt = setTimeout(() => {
+    busy = true;
+    if      (e.deltaY >  25) goTo(cur_s + 1);
+    else if (e.deltaY < -25) goTo(cur_s - 1);
+    setTimeout(() => busy = false, 950);
+  }, 40);
+}, { passive: true });
+
+let ty0 = 0;
+window.addEventListener('touchstart', e => { ty0 = e.touches[0].clientY; }, { passive: true });
+window.addEventListener('touchend',   e => {
+  const d = ty0 - e.changedTouches[0].clientY;
+  if (Math.abs(d) > 50) goTo(cur_s + (d > 0 ? 1 : -1));
+}, { passive: true });
+
+new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting && en.intersectionRatio >= 0.5) {
+      cur_s = IDS.indexOf(en.target.id);
+      updateDots();
+      document.getElementById('sdots').classList.toggle('dark', cur_s === 3);
+    }
+  });
+}, { threshold: 0.5 }).observe
+? IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting && en.intersectionRatio >= 0.5) {
+          cur_s = IDS.indexOf(en.target.id);
+          updateDots();
+          document.getElementById('sdots').classList.toggle('dark', cur_s === 3);
+        }
+      });
+    }, { threshold: 0.5 }).observe(el);
+  })
+: null;
+
+/* ── HERO NAME ─────────────────────────── */
+const hLetters = []; let lastX = 0;
+function buildName() {
+  const c = document.getElementById('hName'); c.innerHTML = '';
+  ['Catelyn','Rodenbiker'].forEach((word, wi) => {
+    const w = document.createElement('span');
+    w.style.cssText = 'display:inline-flex;white-space:nowrap';
+    [...word].forEach(ch => {
+      const s = document.createElement('span'); s.className = 'hl'; s.textContent = ch;
+      hLetters.push(s); w.appendChild(s);
+    });
+    c.appendChild(w);
+    if (wi === 0) { const sp = document.createElement('span'); sp.style.cssText = 'display:inline-block;width:.13em'; c.appendChild(sp); }
+  });
+  fitName(); domino();
+}
+function fitName() {
+  const c = document.getElementById('hName');
+  c.style.fontSize = '100px';
+  const ratio = (window.innerWidth - 104) / c.scrollWidth;
+  c.style.fontSize = Math.floor(parseFloat(getComputedStyle(c).fontSize) * ratio * 0.97) + 'px';
+}
+function domino() {
+  hLetters.forEach((l, i) => {
+    l.addEventListener('mouseenter', e => {
+      const r = e.clientX >= lastX;
+      const C = r?'tr':'tl', C1 = r?'tr1':'tl1', C2 = r?'tr2':'tl2';
+      hLetters.forEach(x => x.className = 'hl');
+      l.classList.add(C);
+      if (hLetters[i-1]) hLetters[i-1].classList.add(C2);
+      if (hLetters[i-2]) hLetters[i-2].classList.add(C2);
+      if (hLetters[i+1]) hLetters[i+1].classList.add(C1);
+      if (hLetters[i+2]) hLetters[i+2].classList.add(C2);
+    });
+    l.addEventListener('mouseleave', () => hLetters.forEach(x => x.className = 'hl'));
+  });
+  document.addEventListener('mousemove', e => lastX = e.clientX);
+}
+buildName();
+window.addEventListener('resize', fitName);
+
+/* ── HERO TAGS ─────────────────────────── */
+const tp = document.getElementById('tag-prev');
+const tpi = document.getElementById('tag-prev-img');
+document.querySelectorAll('.htag').forEach(t => {
+  t.addEventListener('mouseenter', () => { tpi.src = t.dataset.img||''; tp.classList.add('on'); });
+  t.addEventListener('mouseleave', () => tp.classList.remove('on'));
+  t.addEventListener('click',   () => location.href = 'work.html?cat=' + t.dataset.cat);
+  t.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); location.href='work.html?cat='+t.dataset.cat; } });
+});
+
+/* ── PROJECT ROW FLOAT IMAGE ───────────── */
+const pf = document.getElementById('proj-float');
+const pfi = document.getElementById('pf-img');
+let mx = 0, my = 0, fx = 0, fy = 0, raf = null;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animFloat() {
+  fx += (mx - fx) * 0.1; fy += (my - fy) * 0.1;
+  pf.style.left = (fx + 28) + 'px'; pf.style.top = (fy - 90) + 'px';
+  raf = requestAnimationFrame(animFloat);
+}
+document.querySelectorAll('.prow').forEach(row => {
+  row.addEventListener('mouseenter', () => { pfi.src = row.dataset.img||''; pf.classList.add('on'); if(!raf) raf = requestAnimationFrame(animFloat); });
+  row.addEventListener('mouseleave', () => { pf.classList.remove('on'); cancelAnimationFrame(raf); raf = null; });
+});
+
+/* ── CONFETTI ──────────────────────────── */
+const CC = ['#0a0a0a','#3a3a3a','#b0b0ae','#e8e8e6','#2255ff'];
+function confetti(wrap, n=16) {
+  for (let i=0; i<n; i++) {
+    const p = document.createElement('div'); p.className = 'conf-p';
+    const sz = 5+Math.random()*14, tx=(Math.random()-.5)*150, ty=(Math.random()-.5)*130-20;
+    p.style.cssText = `width:${sz}px;height:${sz}px;background:${CC[~~(Math.random()*CC.length)]};top:${10+Math.random()*70}%;left:${10+Math.random()*70}%;--tx:${tx}px;--ty:${ty}px;animation-delay:${Math.random()*.22}s`;
+    p.classList.add('pop'); wrap.appendChild(p);
+    setTimeout(() => p.remove(), 1100);
+  }
+}
+document.getElementById('aPhoto').addEventListener('mouseenter', () => confetti(document.getElementById('confWrap')));
+
+/* ── CONTACT FORM ──────────────────────── */
+function submitForm(e) {
+  e.preventDefault();
+  const f = e.target;
+  if (![...f.querySelectorAll('[required]')].every(el => el.value.trim())) { alert('Please fill in all fields.'); return; }
+  const btn = f.querySelector('.c-send');
+  btn.textContent = 'Sent ✓'; btn.style.cssText = 'background:#1a9e4c;border-color:#1a9e4c';
+  setTimeout(() => { btn.textContent = 'Send →'; btn.style.cssText = ''; f.reset(); }, 3000);
+}
+</script>
+</body>
+</html>

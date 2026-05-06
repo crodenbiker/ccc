@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Portfolio — Catelyn Claire Creative. Branding, logo, photography, and packaging projects."/>
+  <title>Work — Catelyn Claire Creative</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="cursor" aria-hidden="true"></div>
+<div id="loader" role="status" aria-label="Loading">
+  <div class="ld-ring"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <circle class="ra" cx="50" cy="50" r="44" stroke="#0a0a0a" stroke-width="3.5" stroke-dasharray="220 50"/>
+    <circle class="rb" cx="50" cy="50" r="28" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="130 44"/>
+    <text x="50" y="66" text-anchor="middle" font-family="Koulen,sans-serif" font-size="38" fill="#0a0a0a">C</text>
+  </svg></div>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+</div>
+<div class="drawer-mask" id="dMask" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" aria-label="Contact links">
+  <button class="drawer-x" onclick="closeDrawer()" aria-label="Close">✕</button>
+  <h3>Let's<br>Connect.</h3>
+  <div class="drawer-links">
+    <a href="mailto:catelyn@catelynclairecreative.com">catelyn@catelynclairecreative.com<span class="arr"> ↗</span></a>
+    <a href="https://www.behance.net/catelynrodenbiker" target="_blank" rel="noopener">Behance<span class="arr"> ↗</span></a>
+    <a href="https://www.linkedin.com/in/catelynrodenbiker" target="_blank" rel="noopener">LinkedIn<span class="arr"> ↗</span></a>
+    <a href="https://www.instagram.com/catelynclairecreative" target="_blank" rel="noopener">Instagram<span class="arr"> ↗</span></a>
+  </div>
+  <p class="drawer-note">Catelyn Claire Creative · Omaha, NE</p>
+</aside>
+
+<div id="site" style="opacity:0;transition:opacity .7s ease">
+
+  <nav class="site-nav">
+    <a class="nav-logo" href="index.html">Catelyn Claire Creative</a>
+    <ul class="nav-right">
+      <li><a href="work.html" class="here">Work</a></li>
+      <li><a href="index.html#s-about">About</a></li>
+      <li><button class="nav-cta" id="cBtn" onclick="openDrawer()" aria-expanded="false" aria-controls="drawer">Contact</button></li>
+    </ul>
+  </nav>
+
+  <div class="wp-header">
+    <h1>Work</h1>
+    <div class="wp-header-sub">Selected projects · 2024–2026</div>
+  </div>
+
+  <div class="wp-filters" role="group" aria-label="Filter by category">
+    <button class="wf on" onclick="filter('all',this)" aria-pressed="true">All</button>
+    <button class="wf" onclick="filter('branding',this)" aria-pressed="false">Branding</button>
+    <button class="wf" onclick="filter('logo',this)" aria-pressed="false">Logo</button>
+    <button class="wf" onclick="filter('photography',this)" aria-pressed="false">Photography</button>
+    <button class="wf" onclick="filter('packaging',this)" aria-pressed="false">Packaging</button>
+  </div>
+
+  <div class="wp-grid" id="grid" role="list" aria-label="Portfolio projects"></div>
+
+  <div class="wp-foot">
+    <span>Catelyn Claire Creative</span>
+    <span class="live-clock" aria-hidden="true">—</span>
+    <a href="index.html">← Back to Site</a>
+  </div>
+
+</div>
+
+<script>
+const PROJECTS = [
+  { slug:'project-mcdonalds',  title:"McDonald's Happy Meal", cat:'packaging',   label:'Packaging',   img:'images/project-mcdonalds.jpg',      year:'2026' },
+  { slug:'project-grad',       title:'Graduate Studies',      cat:'branding',    label:'Branding',    img:'images/project-grad.jpg',           year:'2025' },
+  { slug:'project-nurture',    title:'Nurture Nebraska',      cat:'logo',        label:'Logo',        img:'images/project-nurture.jpg',        year:'2025' },
+  { slug:'project-charleston', title:'Charleston Games',      cat:'branding',    label:'Branding',    img:'images/project-charleston.jpg',     year:'2025' },
+  { slug:'project-sbar',       title:'S-Bar Steakhouse',      cat:'branding',    label:'Branding',    img:'images/project-sbar.jpg',           year:'2026' },
+  { slug:'project-welcome',    title:'Student Welcome',       cat:'photography', label:'Photography', img:'images/project-student-welcome.jpg', year:'2025' },
+];
+
+function buildGrid(cat) {
+  const g = document.getElementById('grid'); g.innerHTML = '';
+  (cat === 'all' ? PROJECTS : PROJECTS.filter(p => p.cat === cat)).forEach(p => {
+    const a = document.createElement('a');
+    a.className = 'wg-card'; a.href = p.slug + '.html';
+    a.setAttribute('role','listitem'); a.setAttribute('aria-label', p.title);
+    a.innerHTML = `
+      <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'"/>
+      <div class="wg-info">
+        <span class="wg-title">${p.title}</span>
+        <span class="wg-meta">${p.label} · ${p.year}</span>
+      </div>`;
+    g.appendChild(a);
+  });
+}
+function filter(cat, btn) {
+  document.querySelectorAll('.wf').forEach(b => { b.classList.remove('on'); b.setAttribute('aria-pressed','false'); });
+  btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+  buildGrid(cat);
+}
+const urlCat = new URLSearchParams(location.search).get('cat');
+if (urlCat) {
+  const btn = [...document.querySelectorAll('.wf')].find(b => b.textContent.toLowerCase() === urlCat);
+  btn ? filter(urlCat, btn) : buildGrid('all');
+} else buildGrid('all');
+
+/* shared */
+const cur = document.getElementById('cursor');
+document.addEventListener('mousemove', e => { cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; });
+document.querySelectorAll('a,button,.wg-card,.wf').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+});
+(function tick(){ const t=new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:'America/Chicago'})+' CST'; document.querySelectorAll('.live-clock').forEach(el=>el.textContent=t); setTimeout(tick,1000); })();
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('dMask').classList.add('open');document.getElementById('cBtn').setAttribute('aria-expanded','true');}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('dMask').classList.remove('open');document.getElementById('cBtn').setAttribute('aria-expanded','false');}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeDrawer(); });
+window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('out'); document.getElementById('site').style.opacity='1'; setTimeout(()=>document.getElementById('loader').style.display='none',500); }, 1600); });
+</script>
+</body>
+</html>
